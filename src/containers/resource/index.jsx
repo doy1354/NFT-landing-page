@@ -6,6 +6,7 @@ import { nftData } from "./data.js";
 export default function Resource() {
     return (
         <section
+            id="resource"
             aria-label="resource section"
             className="bg-neutral-200"
         >

@@ -45,6 +45,7 @@ const marketplaceNftCardData = [
 export default function Marketplace() {
     return (
         <section
+            id="marketplace"
             aria-label="marketplace section"
             className="bg-neutral-100"
         >

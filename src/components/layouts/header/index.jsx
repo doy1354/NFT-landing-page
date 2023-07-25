@@ -14,7 +14,7 @@ export default function Header() {
     return (
         <header
             aria-label="header"
-            className="fixed top-0 left-0 z-10 w-full border-b border-solid border-neutral-400 bg-neutral-100"
+            className="fixed top-0 left-0 z-10 | w-full | border-b border-solid border-neutral-400 | bg-neutral-100/90 backdrop-blur-3xl"
         >
             <div className="max-[1360px]:relative">
                 <div className="container tablet:px-10 laptop:px-20 | py-7">

@@ -9,7 +9,6 @@ import ContainedButton from "../components/common/buttons/ContainedButton";
 export default function Cta() {
     return (
         <section
-            id="about"
             aria-label="Call to Action section"
             className="bg-neutral-100"
         >
