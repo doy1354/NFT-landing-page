@@ -45,7 +45,7 @@ export default function Featured() {
         >
             <div className="container tablet:px-10 laptop:px-20 | pt-16 pb-24">
                 <div className="space-y-14">
-                    <h2 className="text-800 text-neutral-900 font-bold font-['Integral_CF'] leading-tight">
+                    <h2 className="text-800 text-neutral-900 font-bold font-['Integral_CF',_sans-serif] leading-tight">
                         Collection Featured NFTs
                     </h2>
                     <div className="grid grid-cols-1 min-[530px]:grid-cols-2 laptop:grid-cols-3 gap-8">

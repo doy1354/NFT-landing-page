@@ -53,7 +53,7 @@ export default function Cta() {
                     </div>
 
                     <div className="space-y-8 basis-2/5">
-                        <h2 className="text-800 text-neutral-900 font-bold font-['Integral_CF'] leading-tight max-w-xs">
+                        <h2 className="text-800 text-neutral-900 font-bold font-['Integral_CF',_sans-serif] leading-tight max-w-xs">
                             Create and sell your NFTs
                         </h2>
 

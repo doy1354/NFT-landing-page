@@ -12,7 +12,7 @@ export default function Resource() {
         >
             <div className="container tablet:px-10 laptop:px-20 | py-16">
                 <div className="space-y-10">
-                    <h2 className="text-800 text-neutral-900 font-bold font-['Integral_CF'] leading-tight">
+                    <h2 className="text-800 text-neutral-900 font-bold font-['Integral_CF',_sans-serif] leading-tight">
                         Discover more NFTs
                     </h2>
 

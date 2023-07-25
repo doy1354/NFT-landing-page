@@ -14,7 +14,7 @@ export default function Hero() {
 
                     <div className="flex flex-col justify-between gap-y-8 gap-x-24 laptop:max-[1300px]:flex-row | max-laptop:max-w-xl max-laptop:mx-auto">
                         <div>
-                            <h1 className="text-900 text-neutral-900 font-bold font-['Integral_CF'] leading-tight | max-w-xl mb-6">
+                            <h1 className="text-900 text-neutral-900 font-bold font-['Integral_CF',_sans-serif] leading-tight | max-w-xl mb-6">
                                 Discover, and collect Digital Art NFTs
                             </h1>
 
@@ -31,15 +31,15 @@ export default function Hero() {
                         <div className="grow | space-y-6 | mobile-lg:max-w-[400px]">
                             <div className="grid grid-cols-[repeat(auto-fill,_minmax(120px,_1fr))] gap-4">
                                 <div>
-                                    <p className="text-900 text-neutral-900 font-bold font-['Integral_CF'] leading-tight">98K+</p>
+                                    <p className="text-900 text-neutral-900 font-bold font-['Integral_CF',_sans-serif] leading-tight">98K+</p>
                                     <p className="text-600 text-neutral-600 leading-relaxed">Artwork</p>
                                 </div>
                                 <div>
-                                    <p className="text-900 text-neutral-900 font-bold font-['Integral_CF'] leading-tight">12K+</p>
+                                    <p className="text-900 text-neutral-900 font-bold font-['Integral_CF',_sans-serif] leading-tight">12K+</p>
                                     <p className="text-600 text-neutral-600 leading-relaxed">Auction</p>
                                 </div>
                                 <div>
-                                    <p className="text-900 text-neutral-900 font-bold font-['Integral_CF'] leading-tight">15K+</p>
+                                    <p className="text-900 text-neutral-900 font-bold font-['Integral_CF',_sans-serif] leading-tight">15K+</p>
                                     <p className="text-600 text-neutral-600 leading-relaxed">Artist</p>
                                 </div>
                             </div>

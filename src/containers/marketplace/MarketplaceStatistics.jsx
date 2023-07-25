@@ -47,7 +47,7 @@ export default function MarketplaceStatistics({ extraClasses }) {
     return (
         <div className={`space-y-5 | ${extraClasses}`}>
             <div className="space-y-3 max-mobile-md:text-center">
-                <h3 className="text-600 font-bold font-['Integral_CF'] leading-tight">Top Collections over</h3>
+                <h3 className="text-600 font-bold font-['Integral_CF',_sans-serif] leading-tight">Top Collections over</h3>
                 <p className="text-500 text-primary font-bold leading-tight">Last 7 days</p>
             </div>
 
@@ -55,7 +55,7 @@ export default function MarketplaceStatistics({ extraClasses }) {
                 {
                     statData.map(({ nftImg, nftName, price, priceRate, state }, index) =>
                         <li key={index} className="flex max-mobile-md:flex-col items-center justify-between gap-x-6 gap-y-8 py-4 | [counter-increment:count]">
-                            
+
                             <div className="flex items-center justify-start gap-5 | before:[content:counter(count)] before:text-700 before:font-bold before:leading-[100%] before:tracking-tight before:w-4 before:flex before:justify-center before:items-center">
                                 <div className="relative h-[60px] w-[60px]">
                                     <Picture src={nftImg} alt="nft picture" extraClasses="cursor-pointer" />

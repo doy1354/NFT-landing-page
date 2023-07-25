@@ -22,7 +22,7 @@ export default function Banner() {
             <div className="container tablet:px-10 laptop:px-20 | py-20 laptop:py-28">
                 <div className="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-14 max-tablet:max-w-sm max-tablet:mx-auto">
 
-                    <h2 className="text-800 text-neutral-900 font-bold font-['Integral_CF'] leading-tight tablet:max-laptop:col-span-2 tablet:max-laptop:max-w-lg max-tablet:text-center">
+                    <h2 className="text-800 text-neutral-900 font-bold font-['Integral_CF',_sans-serif] leading-tight tablet:max-laptop:col-span-2 tablet:max-laptop:max-w-lg max-tablet:text-center">
                         The amazing NFT art of the world here
                     </h2>
 
