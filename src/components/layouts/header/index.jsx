@@ -14,46 +14,42 @@ export default function Header() {
     return (
         <header
             aria-label="header"
-            className="fixed top-0 left-0 z-10 | w-full | border-b border-solid border-neutral-400 | bg-neutral-100/90 backdrop-blur-3xl"
+            className="fixed top-0 left-0 z-10 | w-full | border-b border-solid border-neutral-400 | before:content-[''] before:absolute before:inset-0 before:-z-10 before:bg-neutral-100/80 before:backdrop-blur-3xl"
         >
-            <div className="max-[1360px]:relative">
-                <div className="container tablet:px-10 laptop:px-20 | py-7">
-                    {/* navbar main elements */}
-                    <div className="flex items-center justify-between">
-                        {/* logo and navigation for larger devices */}
-                        <div className="flex items-center basis-[43%]">
-                            {/* logo */}
-                            <TextLogo />
+            <div className="container tablet:px-10 laptop:px-20 | py-7">
+                {/* navbar main elements */}
+                <div className="max-[1360px]:relative | flex items-center justify-between">
+                    {/* logo */}
+                    <TextLogo />
 
-                            {/* navigation for larger devices */}
-                            <Navigation
-                                ariaLabel="header navigation"
-                                navExtraClasses="pl-5 border-l border-solid border-neutral-400 | max-[900px]:hidden"
-                                ulExtraClasses="flex items-center gap-3"
-                            >
-                                {[
-                                    ['Marketplace', 'marketplace'],
-                                    ['Resource', 'resource'],
-                                    ['About', 'about'],
-                                ].map(([navItem, url], index) => (
-                                    <li key={index}>
-                                        <Link
-                                            activeClass="bg-primary text-neutral-100 hover:bg-primary/90"
-                                            to={url}
-                                            spy={true}
-                                            smooth={true}
-                                            // offset={-70}
-                                            duration={500}
-                                            className="cursor-pointer font-medium px-5 py-2 rounded-full hover:bg-neutral-300 transition-all">
-                                            {navItem}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </Navigation>
-                        </div>
+                    <div className="grow | flex items-center max-[899px]:hidden">
+                        {/* navigation for larger devices */}
+                        <Navigation
+                            ariaLabel="header navigation"
+                            navExtraClasses="pl-5 border-l border-solid border-neutral-400 | max-[899px]:hidden"
+                            ulExtraClasses="flex items-center gap-3"
+                        >
+                            {[
+                                ['Marketplace', 'marketplace', -40],
+                                ['Resource', 'resource', -80],
+                                ['About', 'about'],
+                            ].map(([navItem, url, offset], index) => (
+                                <li key={index}>
+                                    <Link
+                                        activeClass="bg-primary text-neutral-100 hover:bg-primary/90"
+                                        to={url}
+                                        spy={true}
+                                        smooth={true}
+                                        offset={offset}
+                                        duration={500}
+                                        className="cursor-pointer font-medium px-5 py-2 rounded-full hover:bg-neutral-300 transition-all">
+                                        {navItem}
+                                    </Link>
+                                </li>
+                            ))}
+                        </Navigation>
 
-                        {/* search field for larger device and buttons */}
-                        <div className="flex items-center justify-end gap-5 basis-[57%] max-[900px]:hidden">
+                        <div className="grow justify-end | flex items-center gap-5">
                             {/* search field for larger device */}
                             <div className="basis-[300px] hidden min-[1360px]:block">
                                 <NormalSearchBar />
@@ -74,23 +70,23 @@ export default function Header() {
                                 Connect Wallet
                             </OutlinedButton>
                         </div>
-
-                        {/* hamburger button */}
-                        <HamburgerButton
-                            hamburgerRef={hamburgerRef}
-                            hamburgerToggle={hamburgerToggle}
-                            isMobileMenuVisible={isMobileMenuVisible}
-                            buttonExtraClasses="min-[900px]:hidden"
-                        />
                     </div>
 
+                    {/* hamburger button */}
+                    <HamburgerButton
+                        hamburgerRef={hamburgerRef}
+                        hamburgerToggle={hamburgerToggle}
+                        isMobileMenuVisible={isMobileMenuVisible}
+                        buttonExtraClasses="min-[900px]:hidden"
+                    />
+
                     {/* search field for smaller device */}
-                    <div className="block min-[1360px]:hidden max-[900px]:hidden | max-[1360px]:absolute -bottom-7 right-1/2 translate-x-1/2">
+                    <div className="block min-[1360px]:hidden max-[899px]:hidden | max-[1360px]:absolute -bottom-14 right-1/2 translate-x-1/2">
                         <DynamicWidthSearchBar />
                     </div>
                 </div>
             </div>
-
+            
             {/* <MobileMenu /> */}
             <MobileMenu
                 isMobileMenuVisible={isMobileMenuVisible}

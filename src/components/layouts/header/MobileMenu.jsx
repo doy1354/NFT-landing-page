@@ -14,7 +14,7 @@ export default function MobileMenu({ isMobileMenuVisible, setIsMobileMenuVisible
                 id="mobile-menu"
                 aria-label="Mobile menu"
                 aria-hidden={!isMobileMenuVisible}
-                className={`fixed top-0 right-0 bottom-0 z-40 | p-4 bg-neutral-100 border-l border-solid border-neutral-400 | w-full min-[600px]:w-96 | ${isMobileMenuVisible ? "visible transform-none" : "invisible translate-x-full min-[600px]:translate-x-96"} | transition-all duration-300 | ${offCanvasExtraClasses}`}
+                className={`fixed top-0 right-0 bottom-0 z-40 | p-4 | bg-neutral-100 | border-l border-solid border-neutral-400 | w-full min-[600px]:w-96 | ${isMobileMenuVisible ? "visible transform-none" : "invisible translate-x-full min-[600px]:translate-x-96"} | transition-all duration-300 | ${offCanvasExtraClasses}`}
             >
                 <div className="py-4 space-y-10">
                     {/* logo */}
@@ -27,10 +27,10 @@ export default function MobileMenu({ isMobileMenuVisible, setIsMobileMenuVisible
                         ulExtraClasses="flex flex-col gap-3"
                     >
                         {[
-                            ['Marketplace', 'marketplace'],
-                            ['Resource', 'resource'],
+                            ['Marketplace', 'marketplace', -40],
+                            ['Resource', 'resource', -80],
                             ['About', 'about'],
-                        ].map(([navItem, url], index) => (
+                        ].map(([navItem, url, offset], index) => (
                             <li key={index} className="">
                                 <Link
                                     key={navItem}
@@ -39,6 +39,7 @@ export default function MobileMenu({ isMobileMenuVisible, setIsMobileMenuVisible
                                     to={url}
                                     spy={true}
                                     smooth={true}
+                                    offset={offset}
                                     duration={500}
                                     className="block w-full py-3 pl-3 cursor-pointer font-medium rounded-full hover:bg-neutral-300 transition-all">
                                     {navItem}
