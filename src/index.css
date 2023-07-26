@@ -15,6 +15,10 @@ body {
 @tailwind utilities;
 
 @layer components {
+    .side-scrollbar-hide {
+        scrollbar-width: none;
+    }
+
     .side-scrollbar-hide::-webkit-scrollbar {
         display: none !important;
         height: 0;

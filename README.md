@@ -87,7 +87,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [github link](https://github.com/ankan-782/manage-landing-page-html-css-javascript)
+- Solution URL: [github link](https://github.com/ankan-782/NFT-landing-page)
 - Live Site URL: [live site link](https://manage-landing-page-rav.netlify.app)
 
 ## My process

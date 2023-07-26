@@ -169,7 +169,7 @@ export default function Slider({ smallerDeviceExtraClasses, largerDeviceExtraCla
                     }
                 </Swiper>
 
-                <div className="absolute bottom-28 left-3 z-[5] animate-spin-slow">
+                <div className="absolute bottom-28 left-8 z-[5] animate-spin-slow">
                     <Picture src={nftBadge} alt="live auction badge for the nft" extraClasses="" />
                 </div>
             </div>
