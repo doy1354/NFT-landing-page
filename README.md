@@ -16,6 +16,11 @@
 
 ## Overview
 
+### Links
+
+- Solution URL: [github link](https://github.com/ankan-782/NFT-landing-page)
+- Live Site URL: [live site link](https://nft-landing-page-rav.netlify.app/)
+
 ### The challenge
 
 Users should be able to:
@@ -113,11 +118,6 @@ npm run dev
 - Mobile menu at full width at very small devices
 
 ![screenshot 14](./src/assets/screenshots/Mobile%20menu%20at%20full%20width%20at%20very%20small%20devices.png)
-
-### Links
-
-- Solution URL: [github link](https://github.com/ankan-782/NFT-landing-page)
-- Live Site URL: [live site link](https://nft-landing-page-rav.netlify.app/)
 
 ## My process
 
