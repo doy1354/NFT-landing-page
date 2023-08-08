@@ -6,6 +6,7 @@
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
+  - [How to run](#how-to-run)
   - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
@@ -28,6 +29,32 @@ Users should be able to:
 - Receive an error message when the footer subscribe now `form` is submitted if:
   - The `input` field is empty
   - The email address is not formatted correctly
+
+### How to run
+
+- Clone the repository:
+
+```bash
+git clone https://github.com/ankan-782/NFT-landing-page.git
+```
+
+- Navigate to the project directory:
+
+```bash
+cd NFT-landing-page
+```
+
+- Install dependencies:
+
+```bash
+npm install
+```
+
+- run the project:
+
+```bash
+npm run dev
+```
 
 ### Screenshot
 
