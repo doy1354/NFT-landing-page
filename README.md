@@ -1,5 +1,7 @@
 # NFT Website landing page with many interactivity
 
+## Task for BlockStak company
+
 ## Table of contents
 
 - [Overview](#overview)
@@ -88,16 +90,16 @@ Users should be able to:
 ### Links
 
 - Solution URL: [github link](https://github.com/ankan-782/NFT-landing-page)
-- Live Site URL: [live site link](https://manage-landing-page-rav.netlify.app)
+- Live Site URL: [live site link](https://nft-landing-page-rav.netlify.app/)
 
 ## My process
 
 ### Built with
 
 - React Js
-- Semantic HTML5 markup
+- Semantic JSX markup
 - Tailwind CSS
-- Flexbox
+- Flex-box
 - CSS Grid
 - Position
 - Mobile-first workflow
@@ -105,7 +107,7 @@ Users should be able to:
 
 ### Useful resources
 
-- [React scroll](https://andy-bell.co.uk/a-modern-css-reset/) - This npm package provides different types of scrolling effect for react website. I have used scroll to top and navigation smooth scrolling feature from react scroll for this website.
+- [React scroll](https://www.npmjs.com/package/react-scroll) - This npm package provides different types of scrolling effect for react website. I have used scroll to top and navigation smooth scrolling feature from react scroll for this website.
 
 - [Swiper JS](https://swiperjs.com/react) - This npm package provides many slider as react component. I brought effect coverflow slider and applied in hero section.
 
