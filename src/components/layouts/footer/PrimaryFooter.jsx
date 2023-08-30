@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import EmailSubscriptionForm from '../../common/EmailSubscriptionForm';
 import Navigation from '../../common/Navigation';
 import TextLogo from '../../common/logo/TextLogo';
@@ -49,6 +50,56 @@ const twitterImg = <svg width="36" height="36" viewBox="0 0 36 36" fill="none" x
 </svg>;
 
 
+const linkContainerVariant = {
+    hidden: {},
+    visible: {
+        transition: {
+            delayChildren: 0.7,
+            staggerChildren: 0.2
+        }
+    }
+};
+
+const linkChildVariant = {
+    hidden: {
+        y: -20,
+        opacity: 0
+    },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "spring",
+            duration: 1,
+        }
+    }
+};
+
+const navLinkContainerVariant = {
+    hidden: {},
+    visible: {
+        transition: {
+            delayChildren: 0.7,
+            staggerChildren: 0.2
+        }
+    }
+};
+
+const navLinkChildVariant = {
+    hidden: {
+        x: -20,
+        opacity: 0
+    },
+    visible: {
+        x: 0,
+        opacity: 1,
+        transition: {
+            type: "spring",
+            duration: 1,
+        }
+    }
+};
+
 export default function PrimaryFooter() {
     return (
         <footer
@@ -60,29 +111,49 @@ export default function PrimaryFooter() {
 
                     <div className="space-y-7 | tablet:max-laptop:col-span-2">
                         {/* logo */}
-                        <TextLogo />
+                        <motion.div
+                            initial={{ y: -100, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 0.2 }}
+                        >
+                            <TextLogo />
+                        </motion.div>
 
                         {/* description */}
-                        <p className="text-neutral-600 tablet:max-laptop-lg:max-w-xl leading-relaxed">The world’s first and largest digital marketplace for crypto collectibles and non-fungible tokens (NFTs). Buy, sell, and discover exclusive digital items.</p>
+                        <motion.p
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.4, type: "spring", duration: 1 }}
+                            className="text-neutral-600 tablet:max-laptop-lg:max-w-xl leading-relaxed">The world’s first and largest digital marketplace for crypto collectibles and non-fungible tokens (NFTs). Buy, sell, and discover exclusive digital items.</motion.p>
 
                         {/* social links */}
-                        <Navigation
-                            ariaLabel="social navigation list"
-                            navExtraClasses=""
-                            ulExtraClasses="flex items-center max-tablet:justify-center gap-4"
+                        <motion.div
+                            variants={linkContainerVariant}
+                            initial="hidden"
+                            whileInView="visible"
                         >
-                            {[
-                                ['facebook', '#', facebookImg],
-                                ['twitter', '#', twitterImg],
-                                ['linkedin', '#', linkedinImg],
-                            ].map(([navItem, url, img], index) => (
-                                <li key={index} aria-label={navItem}>
-                                    <a href={url} className="block hover:-translate-y-1 transition-transform">
-                                        {img}
-                                    </a>
-                                </li>
-                            ))}
-                        </Navigation>
+                            <Navigation
+                                ariaLabel="social navigation list"
+                                navExtraClasses=""
+                                ulExtraClasses="flex items-center max-tablet:justify-center gap-4"
+                            >
+                                {[
+                                    ['facebook', '#', facebookImg],
+                                    ['twitter', '#', twitterImg],
+                                    ['linkedin', '#', linkedinImg],
+                                ].map(([navItem, url, img], index) => (
+                                    <motion.li
+                                        variants={linkChildVariant}
+                                        key={index}
+                                        aria-label={navItem}
+                                    >
+                                        <a href={url} className="block hover:-translate-y-1 transition-transform">
+                                            {img}
+                                        </a>
+                                    </motion.li>
+                                ))}
+                            </Navigation>
+                        </motion.div>
                     </div>
 
                     <div className="flex justify-between tablet:max-laptop:justify-normal tablet:max-laptop:gap-x-14 max-tablet:text-left">
@@ -91,25 +162,34 @@ export default function PrimaryFooter() {
                             <h3 className="text-600 font-bold">Market Place</h3>
 
                             {/* Market Place navigation */}
-                            <Navigation
-                                ariaLabel="market place navigation"
-                                navExtraClasses=""
-                                ulExtraClasses="flex flex-col gap-3"
+                            <motion.div
+                                variants={navLinkContainerVariant}
+                                initial="hidden"
+                                whileInView="visible"
                             >
-                                {[
-                                    ['All NFTs', '#'],
-                                    ['New', '#'],
-                                    ['Art', '#'],
-                                    ['Sports', '#'],
-                                    ['Utility', '#'],
-                                    ['Music', '#'],
-                                    ['Domain Name', '#'],
-                                ].map(([navItem, url], index) => (
-                                    <li key={index}>
-                                        <a className="cursor-pointer font-medium transition-all hover:text-primary hover:underline hover:underline-offset-2" href={url}>{navItem}</a>
-                                    </li>
-                                ))}
-                            </Navigation>
+                                <Navigation
+                                    ariaLabel="market place navigation"
+                                    navExtraClasses=""
+                                    ulExtraClasses="flex flex-col gap-3"
+                                >
+                                    {[
+                                        ['All NFTs', '#'],
+                                        ['New', '#'],
+                                        ['Art', '#'],
+                                        ['Sports', '#'],
+                                        ['Utility', '#'],
+                                        ['Music', '#'],
+                                        ['Domain Name', '#'],
+                                    ].map(([navItem, url], index) => (
+                                        <motion.li
+                                            variants={navLinkChildVariant}
+                                            key={index}
+                                        >
+                                            <a className="cursor-pointer font-medium transition-all hover:text-primary hover:underline hover:underline-offset-2" href={url}>{navItem}</a>
+                                        </motion.li>
+                                    ))}
+                                </Navigation>
+                            </motion.div>
                         </div>
 
                         <div className="space-y-8">
@@ -117,22 +197,31 @@ export default function PrimaryFooter() {
                             <h3 className="text-600 font-bold">My Account</h3>
 
                             {/* My Account navigation */}
-                            <Navigation
-                                ariaLabel="account navigation"
-                                navExtraClasses=""
-                                ulExtraClasses="flex flex-col gap-3"
+                            <motion.div
+                                variants={navLinkContainerVariant}
+                                initial="hidden"
+                                whileInView="visible"
                             >
-                                {[
-                                    ['Profile', '#'],
-                                    ['Favorite', '#'],
-                                    ['My Collection', '#'],
-                                    ['Settings', '#'],
-                                ].map(([navItem, url], index) => (
-                                    <li key={index}>
-                                        <a className="cursor-pointer font-medium transition-all hover:text-primary hover:underline hover:underline-offset-2" href={url}>{navItem}</a>
-                                    </li>
-                                ))}
-                            </Navigation>
+                                <Navigation
+                                    ariaLabel="account navigation"
+                                    navExtraClasses=""
+                                    ulExtraClasses="flex flex-col gap-3"
+                                >
+                                    {[
+                                        ['Profile', '#'],
+                                        ['Favorite', '#'],
+                                        ['My Collection', '#'],
+                                        ['Settings', '#'],
+                                    ].map(([navItem, url], index) => (
+                                        <motion.li
+                                            variants={navLinkChildVariant}
+                                            key={index}
+                                        >
+                                            <a className="cursor-pointer font-medium transition-all hover:text-primary hover:underline hover:underline-offset-2" href={url}>{navItem}</a>
+                                        </motion.li>
+                                    ))}
+                                </Navigation>
+                            </motion.div>
                         </div>
                     </div>
 

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import dotsBg from "../../assets/images/miscellaneous/dots.png";
 import Picture from "../../components/common/Picture";
 import ContainedButton from "../../components/common/buttons/ContainedButton";
@@ -12,7 +13,11 @@ export default function Hero() {
             <div className="container tablet:px-10 laptop:px-20 | pb-32 pt-14 | relative z-[0]">
                 <div className="grid grid-cols-1 min-[1300px]:grid-cols-[minmax(auto,_620px),_minmax(auto,_570px)] justify-between items-center gap-y-20">
 
-                    <div className="flex flex-col justify-between gap-y-8 gap-x-24 laptop:max-[1300px]:flex-row | max-laptop:max-w-xl max-laptop:mx-auto">
+                    <motion.div
+                        initial={{ y: -100, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ type: "spring", duration: 1, delay: 0.3 }}
+                        className="flex flex-col justify-between gap-y-8 gap-x-24 laptop:max-[1300px]:flex-row | max-laptop:max-w-xl max-laptop:mx-auto">
                         <div>
                             <h1 className="text-900 text-neutral-900 font-bold font-['Integral_CF',_sans-serif] leading-tight | max-w-xl mb-6">
                                 Discover, and collect Digital Art NFTs
@@ -51,7 +56,7 @@ export default function Hero() {
                                 Explore Now
                             </ContainedButton>
                         </div>
-                    </div>
+                    </motion.div>
 
                     <Slider
                         smallerDeviceExtraClasses="min-[1300px]:hidden"

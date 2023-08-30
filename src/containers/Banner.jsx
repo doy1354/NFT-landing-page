@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const cardTick = <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
     <path d="M20.25 13.875H3C2.385 13.875 1.875 13.365 1.875 12.75C1.875 12.135 2.385 11.625 3 11.625H20.25C20.865 11.625 21.375 12.135 21.375 12.75C21.375 13.365 20.865 13.875 20.25 13.875Z" fill="black" />
     <path d="M12 25.875H9C8.385 25.875 7.875 25.365 7.875 24.75C7.875 24.135 8.385 23.625 9 23.625H12C12.615 23.625 13.125 24.135 13.125 24.75C13.125 25.365 12.615 25.875 12 25.875Z" fill="black" />
@@ -13,16 +15,52 @@ const chartSquare = <svg xmlns="http://www.w3.org/2000/svg" width="36" height="3
     <path d="M22.5 34.125H13.5C5.355 34.125 1.875 30.645 1.875 22.5V13.5C1.875 5.355 5.355 1.875 13.5 1.875H22.5C30.645 1.875 34.125 5.355 34.125 13.5V22.5C34.125 30.645 30.645 34.125 22.5 34.125ZM13.5 4.125C6.585 4.125 4.125 6.585 4.125 13.5V22.5C4.125 29.415 6.585 31.875 13.5 31.875H22.5C29.415 31.875 31.875 29.415 31.875 22.5V13.5C31.875 6.585 29.415 4.125 22.5 4.125H13.5Z" fill="#292D32" />
 </svg>;
 
+const containerVariant = {
+    hidden: {
+        opacity: 0
+    },
+    visible: {
+        opacity: 1,
+        transition: {
+            type: "spring",
+            duration: 1,
+            delay: 0.3,
+            when: "beforeChildren",
+            staggerChildren: 0.2,
+        }
+    }
+};
+
+const childrenVariant = {
+    hidden: {
+        y: -100,
+        opacity: 0
+    },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "spring",
+            duration: 1,
+        }
+    }
+};
+
 export default function Banner() {
     return (
         <section
             aria-label="Banner section"
             className="bg-neutral-200"
         >
-            <div className="container tablet:px-10 laptop:px-20 | py-20 laptop:py-28">
+            <motion.div
+                variants={containerVariant}
+                initial="hidden"
+                whileInView="visible"
+                className="container tablet:px-10 laptop:px-20 | py-20 laptop:py-28">
                 <div className="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-14 max-tablet:max-w-sm max-tablet:mx-auto">
 
-                    <h2 className="text-800 text-neutral-900 font-bold font-['Integral_CF',_sans-serif] leading-tight tablet:max-laptop:col-span-2 tablet:max-laptop:max-w-lg max-tablet:text-center">
+                    <h2
+                        className="text-800 text-neutral-900 font-bold font-['Integral_CF',_sans-serif] leading-tight tablet:max-laptop:col-span-2 tablet:max-laptop:max-w-lg max-tablet:text-center">
                         The amazing NFT art of the world here
                     </h2>
 
@@ -31,15 +69,16 @@ export default function Banner() {
                             {
                                 img: cardTick,
                                 title: 'Fast Transaction',
-                                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam etiam viverra tellus imperdiet.'
+                                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam etiam viverra tellus imperdiet.',
                             },
                             {
                                 img: chartSquare,
                                 title: 'Growth Transaction',
-                                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam etiam viverra tellus'
+                                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam etiam viverra tellus',
                             }
                         ].map(({ img, title, description }, index) =>
-                            <div
+                            <motion.div
+                                variants={childrenVariant}
                                 key={index}
                                 className="flex gap-4"
                             >
@@ -51,11 +90,11 @@ export default function Banner() {
                                     <h3 className="text-600 font-bold leading-tight">{title}</h3>
                                     <p className="text-neutral-600 leading-relaxed">{description}</p>
                                 </div>
-                            </div>
+                            </motion.div>
                         )
                     }
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 }

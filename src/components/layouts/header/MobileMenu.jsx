@@ -18,7 +18,7 @@ export default function MobileMenu({ isMobileMenuVisible, setIsMobileMenuVisible
             >
                 <div className="py-4 space-y-10">
                     {/* logo */}
-                    <TextLogo extraClasses="pl-3" />
+                    <TextLogo extraClasses="pr-10" />
 
                     {/* navigation */}
                     <Navigation

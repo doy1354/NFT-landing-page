@@ -1,6 +1,6 @@
 import { Link, animateScroll as scroll } from "react-scroll";
 
-export default function TextLogo() {
+export default function TextLogo({ extraClasses }) {
     function scrollToTop() {
         scroll.scrollToTop();
     }
@@ -9,7 +9,7 @@ export default function TextLogo() {
         <Link
             onClick={scrollToTop}
             to="home"
-            className="text-700 text-primary font-bold font-['Integral_CF',_sans-serif] | pr-10 py-[10px] leading-tight | cursor-pointer"
+            className={`text-700 text-primary font-bold font-['Integral_CF',_sans-serif] | py-[10px] leading-tight | cursor-pointer ${extraClasses}`}
         >
             NFTERS
         </Link>

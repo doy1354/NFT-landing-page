@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import avatar1 from "../assets/images/avatars/avatar1.png";
 import avatar2 from "../assets/images/avatars/avatar2.png";
 import nft1 from "../assets/images/nfts/nft1.png";
@@ -5,6 +6,31 @@ import nft2 from "../assets/images/nfts/nft2.png";
 import nft3 from "../assets/images/nfts/nft3.png";
 import Picture from "../components/common/Picture";
 import ContainedButton from "../components/common/buttons/ContainedButton";
+
+const pictureContainerVariant = {
+    hidden: {},
+    visible: {
+        transition: {
+            delayChildren: 0.3,
+            staggerChildren: 0.2
+        }
+    }
+};
+
+const pictureChildVariant = {
+    hidden: {
+        scale: 0,
+        opacity: 0
+    },
+    visible: {
+        scale: 1,
+        opacity: 1,
+        transition: {
+            type: "spring",
+            duration: 1,
+        }
+    }
+};
 
 export default function Cta() {
     return (
@@ -15,7 +41,11 @@ export default function Cta() {
             <div className="container tablet:px-10 laptop:px-20 | py-24">
                 <div className="flex max-tablet:flex-col items-center gap-12">
 
-                    <div className="basis-3/5 | mobile-lg:grid mobile-lg:grid-cols-2 mobile-lg:gap-12 max-mobile-lg:flex max-mobile-lg:gap-8 max-mobile-lg:overflow-x-scroll max-mobile-lg:snap-x max-mobile-lg:snap-mandatory | side-scrollbar-hide">
+                    <motion.div
+                        variants={pictureContainerVariant}
+                        initial="hidden"
+                        whileInView="visible"
+                        className="basis-3/5 | mobile-lg:grid mobile-lg:grid-cols-2 mobile-lg:gap-12 max-mobile-lg:flex max-mobile-lg:gap-8 max-mobile-lg:overflow-x-scroll max-mobile-lg:snap-x max-mobile-lg:snap-mandatory | side-scrollbar-hide">
                         {
                             [
                                 {
@@ -34,7 +64,10 @@ export default function Cta() {
                                     extraClasses: 'mobile-lg:max-w-[200px] mobile-lg:max-h-[220px] mobile-lg:aspect-[0.91/1] mobile-lg:justify-self-end'
                                 },
                             ].map(({ img, avatar, extraClasses }, index) =>
-                                <div key={index} className={`relative shrink-0 | w-8/12 h-60 mobile-lg:w-auto mobile-lg:h-auto | max-mobile-lg:snap-start max-mobile-lg:snap-always ${extraClasses}`}>
+                                <motion.div
+                                    variants={pictureChildVariant}
+                                    key={index}
+                                    className={`relative shrink-0 | w-8/12 h-60 mobile-lg:w-auto mobile-lg:h-auto | max-mobile-lg:snap-start max-mobile-lg:snap-always ${extraClasses}`}>
                                     <Picture
                                         src={img}
                                         alt="nft picture"
@@ -47,12 +80,16 @@ export default function Cta() {
                                             extraClasses=""
                                         />
                                     </div>
-                                </div>
+                                </motion.div>
                             )
                         }
-                    </div>
+                    </motion.div>
 
-                    <div className="space-y-8 basis-2/5">
+                    <motion.div
+                        initial={{ y: -30, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ type: "spring", duration: 1, delay: 1.1 }}
+                        className="space-y-8 basis-2/5">
                         <h2 className="text-800 text-neutral-900 font-bold font-['Integral_CF',_sans-serif] leading-tight max-w-xs">
                             Create and sell your NFTs
                         </h2>
@@ -67,7 +104,7 @@ export default function Cta() {
                         >
                             Sign Up Now
                         </ContainedButton>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

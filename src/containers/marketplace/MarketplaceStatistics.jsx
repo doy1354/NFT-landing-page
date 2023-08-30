@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import nft10 from "../../assets/images/nfts/nft10.png";
 import nft11 from "../../assets/images/nfts/nft11.png";
 import nft12 from "../../assets/images/nfts/nft12.png";
@@ -43,18 +44,54 @@ const statData = [
     },
 ];
 
+const listContainerVariant = {
+    hidden: {},
+    visible: {
+        transition: {
+            delayChildren: 1.3,
+            staggerChildren: 0.2
+        }
+    }
+};
+
+const listChildVariant = {
+    hidden: {
+        y: -30,
+        opacity: 0
+    },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "spring",
+            duration: 1,
+        }
+    }
+};
+
 export default function MarketplaceStatistics({ extraClasses }) {
     return (
         <div className={`space-y-5 | ${extraClasses}`}>
-            <div className="space-y-3 max-mobile-md:text-center">
+            <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ type: "spring", duration: 1, delay: 1.1 }}
+                className="space-y-3 max-mobile-md:text-center">
                 <h3 className="text-600 font-bold font-['Integral_CF',_sans-serif] leading-tight">Top Collections over</h3>
                 <p className="text-500 text-primary font-bold leading-tight">Last 7 days</p>
-            </div>
+            </motion.div>
 
-            <ol className="divide-y divide-solid divide-neutral-400 [counter-reset:count]">
+            <motion.ol
+                variants={listContainerVariant}
+                initial="hidden"
+                whileInView="visible"
+                className="divide-y divide-solid divide-neutral-400 [counter-reset:count]">
                 {
                     statData.map(({ nftImg, nftName, price, priceRate, state }, index) =>
-                        <li key={index} className="flex max-mobile-md:flex-col items-center justify-between gap-x-6 gap-y-8 py-4 | [counter-increment:count]">
+                        <motion.li
+                            variants={listChildVariant}
+                            key={index}
+                            className="flex max-mobile-md:flex-col items-center justify-between gap-x-6 gap-y-8 py-4 | [counter-increment:count]">
 
                             <div className="flex items-center justify-start gap-5 | before:[content:counter(count)] before:text-700 before:font-bold before:leading-[100%] before:tracking-tight before:w-4 before:flex before:justify-center before:items-center">
                                 <div className="relative h-[60px] w-[60px]">
@@ -92,10 +129,10 @@ export default function MarketplaceStatistics({ extraClasses }) {
                             <div>
                                 <p className={`text-600 font-semibold leading-[100%] tracking-tight ${state === 'increased' ? 'text-accent-300' : 'text-accent-900'}`}>{`${state === 'increased' ? '+' : '-'}${priceRate}%`}</p>
                             </div>
-                        </li>
+                        </motion.li>
                     )
                 }
-            </ol>
+            </motion.ol>
         </div>
     );
 }

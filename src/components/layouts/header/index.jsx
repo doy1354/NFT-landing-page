@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import useOffCanvas from "../../../hooks/useOffCanvas";
 import Navigation from "../../common/Navigation";
@@ -20,7 +21,13 @@ export default function Header() {
                 {/* navbar main elements */}
                 <div className="max-[1360px]:relative | flex items-center justify-between">
                     {/* logo */}
-                    <TextLogo />
+                    <motion.div
+                        initial={{ y: -100, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.2 }}
+                    >
+                        <TextLogo extraClasses="pr-10"/>
+                    </motion.div>
 
                     <div className="grow | flex items-center max-[899px]:hidden">
                         {/* navigation for larger devices */}
@@ -72,7 +79,7 @@ export default function Header() {
                         </div>
                     </div>
 
-                    {/* hamburger button */}
+                    {/* hamburger button for smaller devices */}
                     <HamburgerButton
                         hamburgerRef={hamburgerRef}
                         hamburgerToggle={hamburgerToggle}
@@ -86,8 +93,8 @@ export default function Header() {
                     </div>
                 </div>
             </div>
-            
-            {/* <MobileMenu /> */}
+
+            {/* MobileMenu for smaller devices */}
             <MobileMenu
                 isMobileMenuVisible={isMobileMenuVisible}
                 setIsMobileMenuVisible={setIsMobileMenuVisible}

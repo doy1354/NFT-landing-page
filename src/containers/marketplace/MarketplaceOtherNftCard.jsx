@@ -1,11 +1,16 @@
+import { motion } from "framer-motion";
 import Picture from "../../components/common/Picture";
 import OutlinedButton from "../../components/common/buttons/OutlinedButton";
 
 export default function MarketplaceOtherNftCard({ nftCardItem, extraClasses }) {
-    const { nftImg, ownerImg, title, stockCount, price } = nftCardItem || {};
+    const { nftImg, ownerImg, title, stockCount, price, motionDelay } = nftCardItem || {};
 
     return (
-        <div className={`grid grid-flow-row mobile-md:max-[434px]:grid-flow-col min-[801px]:grid-flow-col min-[1325px]:justify-start items-center gap-5 ${extraClasses}`}>
+        <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ type: "spring", duration: 1, delay: motionDelay }}
+            className={`grid grid-flow-row mobile-md:max-[434px]:grid-flow-col min-[801px]:grid-flow-col min-[1325px]:justify-start items-center gap-5 ${extraClasses}`}>
             <div className="h-[147px]">
                 <Picture
                     src={nftImg}
@@ -52,6 +57,6 @@ export default function MarketplaceOtherNftCard({ nftCardItem, extraClasses }) {
                     Place a bid
                 </OutlinedButton>
             </div>
-        </div>
+        </motion.div>
     );
 }

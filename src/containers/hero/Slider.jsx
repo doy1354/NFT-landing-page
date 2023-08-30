@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import { EffectCoverflow } from 'swiper/modules';
@@ -18,6 +19,7 @@ const sliderData = [
         nftImg: nft1,
         price: 0.25,
         timeLeft: getRandomTime(),
+        motionDelay: 0,
     },
     {
         title: "Abstr Gradient NFT",
@@ -26,6 +28,7 @@ const sliderData = [
         nftImg: nft2,
         price: 0.25,
         timeLeft: getRandomTime(),
+        motionDelay: 0.3,
     },
     {
         title: "Abstr Gradient NFT",
@@ -34,16 +37,51 @@ const sliderData = [
         nftImg: nft3,
         price: 0.25,
         timeLeft: getRandomTime(),
+        motionDelay: 0.6,
     },
 ];
+
+const pictureContainerVariant = {
+    hidden: {},
+    visible: {
+        transition: {
+            delayChildren: 0.6,
+            staggerChildren: 0.2
+        }
+    }
+};
+
+const pictureChildVariant = {
+    hidden: {
+        y: -100,
+        opacity: 0
+    },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "spring",
+            duration: 1,
+        }
+    }
+};
 
 export default function Slider({ smallerDeviceExtraClasses, largerDeviceExtraClasses }) {
     return (
         <>
-            <div className={`relative | grid grid-cols-[minmax(220px,_1fr)_minmax(220px,_1fr)_minmax(220px,_1fr)] gap-6 overflow-x-scroll snap-x snap-mandatory | side-scrollbar-hide | ${smallerDeviceExtraClasses}`}>
+            <motion.div
+                variants={pictureContainerVariant}
+                initial="hidden"
+                whileInView="visible"
+                className={`relative | grid grid-cols-[minmax(220px,_1fr)_minmax(220px,_1fr)_minmax(220px,_1fr)] gap-6 overflow-x-scroll snap-x snap-mandatory | side-scrollbar-hide | ${smallerDeviceExtraClasses}`}>
                 {
                     sliderData.map(({ title, ownerImg, ownerName, nftImg, price, timeLeft }, index) =>
-                        <div key={index} style={{ backgroundImage: `url(${nftImg})` }} className="overflow-hidden | p-6 | text-neutral-100 | bg-cover bg-center bg-no-repeat | h-[380px] | rounded-3xl | flex flex-col justify-between gap-6 | snap-start snap-always | relative before:content-[''] before:absolute before:inset-0 before:bg-neutral-900 before:opacity-20">
+                        <motion.div
+                            variants={pictureChildVariant}
+                            key={index}
+                            style={{ backgroundImage: `url(${nftImg})` }}
+                            className="overflow-hidden | p-6 | text-neutral-100 | bg-cover bg-center bg-no-repeat | h-[380px] | rounded-3xl | flex flex-col justify-between gap-6 | snap-start snap-always | relative before:content-[''] before:absolute before:inset-0 before:bg-neutral-900 before:opacity-20"
+                        >
 
                             <div className="space-y-2 | relative">
                                 <h3 className="text-700 font-bold leading-tight tracking-tight">{title}</h3>
@@ -90,13 +128,17 @@ export default function Slider({ smallerDeviceExtraClasses, largerDeviceExtraCla
                             <div className="w-20 h-20 min-[915px]:w-28 min-[915px]:h-28 | absolute top-1/2 left-1/2 -mt-10 -ml-10 min-[915px]:-mt-14 min-[915px]:-ml-14 z-[5] animate-spin-slow">
                                 <Picture src={nftBadge} alt="live auction badge for the nft" extraClasses="" />
                             </div>
-                        </div>
-
+                        </motion.div>
                     )
                 }
-            </div>
+            </motion.div>
 
-            <div className={`relative | w-full h-full | ${largerDeviceExtraClasses}`}>
+            <motion.div
+                initial={{ x: -30, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ type: "spring", duration: 1, delay: 0.6 }}
+                className={`relative | w-full h-full | ${largerDeviceExtraClasses}`}
+            >
                 <Swiper
                     effect={'coverflow'}
                     grabCursor={true}
@@ -172,7 +214,7 @@ export default function Slider({ smallerDeviceExtraClasses, largerDeviceExtraCla
                 <div className="absolute bottom-28 left-8 z-[5] animate-spin-slow">
                     <Picture src={nftBadge} alt="live auction badge for the nft" extraClasses="" />
                 </div>
-            </div>
+            </motion.div>
         </>
     );
 }

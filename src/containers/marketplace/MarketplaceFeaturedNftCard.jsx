@@ -1,9 +1,14 @@
+import { motion } from "framer-motion";
 import Picture from "../../components/common/Picture";
 
 export default function MarketplaceFeaturedNftCard({ nftCardItem, extraClasses }) {
-    const { nftImg, ownerImg, title, stockCount, price } = nftCardItem || {};
+    const { nftImg, ownerImg, title, stockCount, price, motionDelay } = nftCardItem || {};
     return (
-        <div className={`space-y-8 ${extraClasses}`}>
+        <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ type: "spring", duration: 1, delay: motionDelay }}
+            className={`space-y-8 ${extraClasses}`}>
             <div className="h-[424px]">
                 <Picture
                     src={nftImg}
@@ -46,6 +51,6 @@ export default function MarketplaceFeaturedNftCard({ nftCardItem, extraClasses }
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }

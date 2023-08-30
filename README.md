@@ -1,6 +1,6 @@
 # NFT Website landing page with many interactivity
 
-## Task for BlockStak company
+*This was a task for BlockStak company*
 
 ## Table of contents
 

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import avatar1sm from "../../assets/images/avatars/avatar1sm.png";
 import nft1 from "../../assets/images/nfts/nft1.png";
 import nft2 from "../../assets/images/nfts/nft2.png";
@@ -45,9 +46,13 @@ export default function Featured() {
         >
             <div className="container tablet:px-10 laptop:px-20 | pt-16 pb-24">
                 <div className="space-y-14">
-                    <h2 className="text-800 text-neutral-900 font-bold font-['Integral_CF',_sans-serif] leading-tight">
+                    <motion.h2
+                        initial={{ y: -30, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ type: "spring", duration: 1, delay: 0.3 }}
+                        className="text-800 text-neutral-900 font-bold font-['Integral_CF',_sans-serif] leading-tight">
                         Collection Featured NFTs
-                    </h2>
+                    </motion.h2>
                     <div className="grid grid-cols-1 min-[530px]:grid-cols-2 laptop:grid-cols-3 gap-8">
                         {featuredNftData.map(item =>
                             <FeaturedNftCard key={item.id} item={item} />

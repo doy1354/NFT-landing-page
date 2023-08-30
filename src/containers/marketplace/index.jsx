@@ -3,8 +3,8 @@ import nft4 from "../../assets/images/nfts/nft4.png";
 import nft5 from "../../assets/images/nfts/nft5.png";
 import nft6 from "../../assets/images/nfts/nft6.png";
 import nft7 from "../../assets/images/nfts/nft7.png";
-import MarketplaceFeaturedNftCard from "./MarketPlaceFeaturedNftCard";
-import MarketplaceOtherNftCard from "./MarketPlaceOtherNftCard";
+import MarketplaceFeaturedNftCard from "./MarketplaceFeaturedNftCard";
+import MarketplaceOtherNftCard from "./MarketplaceOtherNftCard";
 import MarketplaceStatistics from "./MarketplaceStatistics";
 
 const marketplaceNftCardData = [
@@ -15,6 +15,7 @@ const marketplaceNftCardData = [
         title: 'The Futr Abstr',
         stockCount: 10,
         price: 0.25,
+        motionDelay: 0.3
     },
     {
         id: 2,
@@ -23,6 +24,7 @@ const marketplaceNftCardData = [
         title: 'The Futr Abstr',
         stockCount: 8,
         price: 0.25,
+        motionDelay: 0.5
     },
     {
         id: 3,
@@ -31,6 +33,7 @@ const marketplaceNftCardData = [
         title: 'The Futr Abstr',
         stockCount: 8,
         price: 0.25,
+        motionDelay: 0.7
     },
     {
         id: 4,
@@ -39,6 +42,7 @@ const marketplaceNftCardData = [
         title: 'The Futr Abstr',
         stockCount: 8,
         price: 0.25,
+        motionDelay: 0.9
     },
 ];
 
