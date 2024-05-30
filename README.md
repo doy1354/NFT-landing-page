@@ -1,6 +1,6 @@
 # NFT Website landing page with many interactivity
 
-*This was a task for BlockStak company*
+https://www.figma.com/design/dHbmdbDdFv89AWpFe3xkws/Website-NFT-Marketplace-(Community)?node-id=1-263
 
 ## Table of contents
 
@@ -138,8 +138,3 @@ npm run dev
 
 - [Swiper JS](https://swiperjs.com/react) - This npm package provides many slider as react component. I brought effect coverflow slider and applied in hero section.
 
-## Author
-
-- Website - [Avijit Roy](https://avijit-roy-portfolio.netlify.app/)
-- LinkedIn - [avijit-roy-ankan](https://www.linkedin.com/in/avijit-roy-ankan/)
-- Twitter - [@AvijitAnkan](https://twitter.com/AvijitAnkan)
